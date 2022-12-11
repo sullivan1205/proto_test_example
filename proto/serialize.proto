@@ -1,0 +1,42 @@
+//协议版本
+syntax = "proto3";
+
+//命名空间
+package mytest;
+
+//依赖的其他 proto 源文件，
+//在依赖的数据类型在其他 proto 源文件中定义的情况下，
+//需要通过 import 导入其他 proto 源文件
+import "google/protobuf/any.proto";
+
+//message 是消息体，它就是一个结构体/类
+message SubTest {
+  int32              i32      =   1;
+}
+
+message Test {
+//[数据类型]   [字段]       [field-number]
+  int32              i32      =   1;
+  int64              i64      =   2;
+  uint32             u32      =   3;
+  uint64             u64      =   4;
+  sint32             si32     =   5;
+  sint64             si64     =   6;
+  fixed32            fx32     =   7;
+  fixed64            fx64     =   8;
+  sfixed32           sfx32    =   9;
+  sfixed64           sfx64    =   10;
+  bool               bl       =   11;
+  float              f32      =   12;
+  double             d64      =   13;
+  string             str      =   14;
+  bytes              bs       =   15;
+  repeated int32     vec      =   16;
+  map<int32, int32>  mp       =   17;
+  SubTest            test     =   18;
+  oneof object {
+    float            obj_f32  =   19;
+    string           obj_str  =   20;
+  }
+  google.protobuf.Any any     =   21;
+}
